@@ -5,7 +5,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 import re
 
-nltk.download('all') # download all courpus and other data
+nltk.download('all')  # download all courpus and other data
 
 df = pd.read_csv("train.csv")
 df.head()
@@ -16,10 +16,6 @@ print(df.head())
 
 
 def cleaning(df):
-	"""
-		Takes a dataframe as argument and return cleaned dataframe
-		Removes url, emojies, new lines, tabs and other characters except alphanumeric data in english.
-	"""
     df.astype(str).apply(lambda x: x.str.encode('ascii', 'ignore').str.decode('ascii')) # remove emojies https://stackoverflow.com/questions/57514169/how-can-i-remove-emojis-from-a-dataframe
     df['comment_text'] = df['comment_text'].apply(lambda x: re.split('http(s)?:\/\/.*', str(x))[0])  # removing urls from text # ref: https://stackoverflow.com/questions/51994254/removing-url-from-a-column-in-pandas-dataframe
     df['comment_text'] = df['comment_text'].str.replace(r'[\t\n]', ' ')
@@ -28,18 +24,6 @@ def cleaning(df):
     return(df)
 
 def all_in_one_toxcity_column(df):
-	"""
-		Takes df as input and return dataframe with new column names is_toxic.
-		Put all categories in one column in numeric form.
-		0 for no toxicity,
-		1 for toxic,
-		2 for obscene,
-		3 for severe_toxic,
-		4 for threat,
-		5 for insult,
-		6 for identity_hate,
-		7 for more than one toxicity,
-	"""
     df['is_toxic'] = -1
     for i in range(len(df)):
         if (df.toxic[i] + df.obscene[i] + df.severe_toxic[i] + df.threat[i] + df.insult[i] + df.identity_hate[i]) > 1:
@@ -62,9 +46,6 @@ def all_in_one_toxcity_column(df):
     return(df)
 
 def remove_contractions(df):
-	"""
-		Takes df as input and return dataframe with all data lowercase and removed contractions.
-	"""
     contractions = { 
 		    "ain't": "am not",
 		    "aren't": "are not",
@@ -197,26 +178,8 @@ def remove_contractions(df):
 # from tqdm import tqdm_notebook as tqdm
 
 def lemmatization_remove_stopwords(df):
-	"""
-		Takes df as input and return dataframe with removed stopwords and lemmatized data.
-		Used custom stopwords and nltk library's WordNetLemmatizer for lemmatizing.
-	"""
-	stopwords= ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've",\
-            "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', \
-            'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their',\
-            'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', \
-            'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', \
-            'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', \
-            'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after',\
-            'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further',\
-            'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more',\
-            'most', 'other', 'some', 'such', 'only', 'own', 'same', 'so', 'than', 'too', 'very', \
-            's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', \
-            've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn',\
-            "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn',\
-            "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", \
-            'won', "won't", 'wouldn', "wouldn't"]
     word_Lemmatized = WordNetLemmatizer()
+    stopwords= ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've","you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't"]
     for index, comment in enumerate(df['comment_text']):
         temp_data = []
         for word in str(comment).split():
