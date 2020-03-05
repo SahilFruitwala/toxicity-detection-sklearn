@@ -204,4 +204,10 @@ print(train1.head())
 
 df = lemmatization_remove_stopwords(df)
 print(df['comment_text'].head())
+
+df = df.dropna(how='any',axis=0)
+
+print(df.isna().sum())
+print(df.isnull().sum())
+
 df.to_csv('Final_Cleaned_Data.csv', index=False)
