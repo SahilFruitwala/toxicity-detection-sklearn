@@ -198,7 +198,7 @@ train1 = all_in_one_toxcity_column(train)
 train1.head()
 print(train1.head())
 
-train1 = remove_contractions(train)
+train1 = remove_contractions(train1)
 # train1.to_csv('new_train_data.csv',index=False)
 print(train1.head())
 
