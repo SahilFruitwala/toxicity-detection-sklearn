@@ -23,4 +23,9 @@
 7. All individual worked files can be found in separate branches which are given by group member name.
 
 
+### Project report is named as NLP\_report.docx and NLP_report.pdf in master branch.
+### Project presentation is named as NLP_PPT.pptx, it is also in master branch.
+
+
+
 ## Try application: https://toxicity-detection.herokuapp.com/
