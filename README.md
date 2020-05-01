@@ -1,5 +1,4 @@
-## CSCI 4152/6509 Natural Language Processing (Winter 2020)
-# P-04: Toxicity Detection using NLP
+# Toxicity Detection using NLP
 
 ### Project members
 
