@@ -2,12 +2,12 @@
 
 ### Project members
 
-| CSID:        | Name:              |
-|--------------|--------------------|
-| fruitwala    | Sahil Fruitwala    |
-| jthomas      | Joel Joseph Thomas |
-| abhijeet     | Abhijeet Singh     |
-| pvyas        | Punarva Vyas       |
+| Name:              |
+|--------------------|
+| Sahil Fruitwala    |
+| Joel Joseph Thomas |
+| Abhijeet Singh     |
+| Punarva Vyas       |
 
 
 
