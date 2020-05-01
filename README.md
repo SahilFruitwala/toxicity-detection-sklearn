@@ -3,12 +3,12 @@
 
 ### Project members
 
-| CSID:        | Name:              | Course:   | Email:          |
-|--------------|--------------------|-----------|-----------------|
-| fruitwala    | Sahil Fruitwala    | CSCI 6509 | sh941551@dal.ca |
-| jthomas      | Joel Joseph Thomas | CSCI 6509 | jl682450@dal.ca |
-| abhijeet     | Abhijeet Singh     | CSCI 6509 | ab249429@dal.ca |
-| pvyas        | Punarva Vyas       | CSCI 6509 | pn605302@dal.ca |
+| CSID:        | Name:              |
+|--------------|--------------------|
+| fruitwala    | Sahil Fruitwala    |
+| jthomas      | Joel Joseph Thomas |
+| abhijeet     | Abhijeet Singh     |
+| pvyas        | Punarva Vyas       |
 
 
 
