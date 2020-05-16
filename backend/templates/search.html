@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block body %}
+
+<div class="container" style="margin-top: 15rem;">
+    <h1>Toxicity Detection</h1>
+    <form class="input-group" method="GET" action="/report">
+        <input class="form-control" type="text" minlength="2" name="searchText" autocomplete="off" placeholder="Enter text to detect toxicity" required>
+        <div class="input-group-append">
+            <input type="submit" class="btn btn-primary" value="Detect">
+        </div>
+    </form>
+
+</div>
+{% endblock %}

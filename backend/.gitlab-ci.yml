@@ -1,0 +1,9 @@
+staging:deploy:
+    stage: deploy
+    environment: staging
+    script:
+        - dpl --provider=heroku --app=toxicity-detection --api-key=$HEROKU_API_KEY
+    only:
+        - deployment
+    tags:
+        - ci, ssh
