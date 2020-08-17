@@ -6,7 +6,7 @@
 | ------------------ |
 | Sahil Fruitwala    |
 | Joel Joseph Thomas |
-| [Abhijeet Singh](https://github.com/Abhijeet1026)     |
+| Abhijeet Singh     |
 | Punarva Vyas       |
 
 ## Note:
